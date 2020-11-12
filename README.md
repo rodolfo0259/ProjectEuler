@@ -1,6 +1,6 @@
 # ProjectEuler
 
-The code and solution to the challenges available in the projecteuler.net
+The code and solution to the challenges available in projecteuler.net
 
 Feel free to use and study them
 
