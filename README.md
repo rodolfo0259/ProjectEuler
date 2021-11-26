@@ -1,7 +1,11 @@
 # ProjectEuler
 
-The code and solution to the challenges available in projecteuler.net
+Repo to share my code solutions from https://projecteuler.net/
 
-Feel free to use and study them
 
-Here is only the answers( and the code ), to see the questions visit the site
+> What is Project Euler?
+>
+> Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.
+
+
+The Solutions, therefore the Code, can only be shared until level 100, so everyone can enjoy solving the challenges by themselves without impostors amoung us
