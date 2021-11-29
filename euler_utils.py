@@ -1,3 +1,7 @@
+'''
+Utils function to use for math and Project Euler in general
+'''
+
 def get_gauss_sum(target_number_n: int, multiple_factor: int)->int:
     '''
     Base formula:
@@ -39,3 +43,32 @@ def generate_fibonnaci(limit: int)->list:
     
     ## removes the last number which is bigger than limit
     return fibonnaci_sequence[:-1]
+
+
+def find_primes_sieve(limit: int)->list:
+    '''
+    Find the primes based on sieve of eratosthenes
+    '''
+    prime_list = list()
+
+    a = [True] * limit  # Initialize the primality list
+    a[0] = a[1] = False
+
+    for (i, isprime) in enumerate(a):
+        if isprime:
+            prime_list.append(i)
+            for n in range(i*i, limit, i):  # Mark factors non-prime
+                a[n] = False
+    
+    return prime_list
+
+
+def is_prime(number: int)->bool:
+    '''
+    Find if a number is prime
+    '''
+    for i in range(2, int(number**0.5+1)):
+        if number % i == 0:
+            return False
+    
+    return True
