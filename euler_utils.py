@@ -72,3 +72,50 @@ def is_prime(number: int)->bool:
             return False
     
     return True
+
+
+def is_divisible(number: int)->list:
+    '''
+    Find all natural numbers that can divide the input number
+    '''
+    can_divide = []
+    for div in range(2, int(number**0.5+1)):
+        if number % div == 0:
+            can_divide.append(div)
+            can_divide.append(number // div)
+
+    can_divide = list(set(can_divide))
+    (can_divide).sort()
+    return can_divide
+
+
+def find_smallest_number_divisible(sequence_range: int)->int:
+    '''
+    Find the smallest number that can be divided by all number in the sequence
+
+    Prime factorization:
+    https://stackoverflow.com/a/25573750
+
+    e.g. smallest from sequence 1 to 20
+    result = 2**4 * 3**2 * 5 * 7 * 11 * 13 * 17 * 19
+    the prime**n: is the largest number below the sequence limit
+
+    Args:
+        sequence_range: last number from the sequence
+        e.g. sequence_range = 20 --> 1 to 20
+    '''
+    primes_list = find_primes_sieve(sequence_range)
+
+    for i, prime in enumerate(primes_list):
+        n = 1
+        while prime**(n+1) < sequence_range:
+                n += 1
+        
+        primes_list[i] = prime**n
+    
+    result = primes_list[0]
+    for prime in primes_list[1:]:
+        result *= prime
+    
+    return result
+
