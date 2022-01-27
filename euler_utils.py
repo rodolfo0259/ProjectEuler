@@ -2,7 +2,8 @@
 Utils function to use for math and Project Euler in general
 '''
 
-def get_gauss_sum(target_number_n: int, multiple_factor: int)->int:
+
+def get_gauss_sum(target_number_n: int, multiple_factor: int = 1) -> int:
     '''
     Base formula:
     (n*(n+1))/2
