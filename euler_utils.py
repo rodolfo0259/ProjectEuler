@@ -120,3 +120,22 @@ def find_smallest_number_divisible(sequence_range: int)->int:
     
     return result
 
+
+def triplet(sum_limit):
+    '''
+    Find the pithagorean triplet based on the sum
+        of a + b + c, which a < b < c
+    Args:
+        sum_limit: sum of a+b+c, limit
+    Returns:
+        triplet_tuple: (a,b,c) if exists else None
+    '''
+    for a in range(3, sum_limit):
+        for b in range(4, sum_limit):
+            c = a**2 + b**2
+            c = c**(1/2)
+
+            if (a+b+c) == sum_limit:
+                return (a, b, c)
+
+    return None
