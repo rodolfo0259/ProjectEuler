@@ -139,3 +139,54 @@ def triplet(sum_limit):
                 return (a, b, c)
 
     return None
+
+
+def adjacency_array(array, adjacent_coeficient):
+    '''
+    Takes an array(list inside a list)
+    and find the x number of adjacent
+    elements to it (horizontal, vertizal and diagonaly)
+    Args:
+        array: elements in a matrix (lists inside a list)
+        adjacent_coeficient: number that represents how many
+            adjacent elements to search
+    Return:
+        combinations: all possivble combinations of
+                the adjacent elements
+    '''
+    print(f'Array of len: {len(array)} x {len(array[0])}')
+    combinations = []
+    transpose = list(map(list, zip(*array)))
+
+    row_limit = len(transpose) - adjacent_coeficient + 1
+    column_limit = len(array[0]) - adjacent_coeficient + 1
+    # # horiz
+    for i in range(len(array)):
+        for j in range(column_limit):
+            combinations.append(array[i][j:adjacent_coeficient])
+
+    # ## verti
+    for i in range(len(transpose)):
+        for j in range(row_limit):
+            combinations.append(transpose[i][j:adjacent_coeficient])
+
+    # ## diag
+    # # asc
+    for i in range(len(array) - adjacent_coeficient + 1):
+        for j in range(column_limit):
+            tmplis = []
+            while len(tmplis) < adjacent_coeficient:
+                tmplis.append(array[i+len(tmplis)][j+len(tmplis)])
+
+            combinations.append(tmplis)
+
+    # # desc
+    for i in range(adjacent_coeficient-1, len(array)):
+        for j in range(column_limit):
+            tmplis = []
+            while len(tmplis) < adjacent_coeficient:
+                tmplis.append(array[i-len(tmplis)][j+len(tmplis)])
+
+            combinations.append(tmplis)
+
+    return combinations
