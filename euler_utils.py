@@ -190,3 +190,23 @@ def adjacency_array(array, adjacent_coeficient):
             combinations.append(tmplis)
 
     return combinations
+
+
+def collatz_conjecture(number: int):
+    '''
+    Find the collatz sequence for the number
+    Return:
+        A list of collatz sequence from the number
+    '''
+    seq = [number]
+    # seq_count = 1
+    while number != 1:
+        if number % 2 == 0:
+            number = number//2
+        else:
+            number = (3*number + 1)
+        seq.append(number)
+        # seq_count += 1
+
+    return seq
+    # return seq_count
