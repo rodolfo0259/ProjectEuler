@@ -12,7 +12,7 @@ def get_gauss_sum(target_number_n: int, multiple_factor: int = 1) -> int:
     1+2+3
     3+2+1
     -----
-    6+6+6 = 18 / 2 = 9
+    4+4+4 = 12 / 2 = 6
 
     e.g. for multiples
     sum of all multiples of 3 from 1 to 30 (below 31)
@@ -80,7 +80,7 @@ def is_divisible(number: int)->list:
     Find all natural numbers that can divide the input number
     '''
     can_divide = []
-    for div in range(2, int(number**0.5+1)):
+    for div in range(1, int(number**0.5+1)):
         if number % div == 0:
             can_divide.append(div)
             can_divide.append(number // div)
