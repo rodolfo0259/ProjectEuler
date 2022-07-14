@@ -210,3 +210,34 @@ def collatz_conjecture(number: int):
 
     return seq
     # return seq_count
+
+
+def find_tree_bigger_path(tree: list[list[str | int | float]]) -> float:
+    '''
+    Find the maximun path sum, top to botton, in a triangle tree
+    of numbers by its adjacent values below, top to botton
+    Args:
+        tree: a list of the number tree
+    Returns:
+        The biggest value
+    '''
+    while len(tree) > 1:
+        # start from botton and calculate the max(sum()) of the last 2 lines
+        last_line_refactor = []
+        for index, value in enumerate(tree[-2]):
+            option_one = float(tree[-1][index]) + float(value)
+            option_two = float(tree[-1][index+1]) + float(value)
+            last_line_refactor.append(max(option_one, option_two))
+
+        del tree[-2:]
+        tree.append(last_line_refactor)
+    return tree[0][0]
+
+
+def amicable(number: int):
+    ''' Find amicable pair '''
+    soma_divs_one = sum(is_divisible(number)[:-1])
+    soma_divs_two = sum(is_divisible(soma_divs_one)[:-1])
+    if number == soma_divs_two and (soma_divs_one != number):
+        return [number, soma_divs_one]
+    return False
