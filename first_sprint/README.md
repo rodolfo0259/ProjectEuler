@@ -1,0 +1,1 @@
+This was the first attempt to solve the challenges while learning math with programming
